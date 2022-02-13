@@ -1,6 +1,23 @@
 import React from 'react';
+import { useState } from 'react';
 
-function FoodBox ({ name, calories, image, quantity}) {
+function FoodBox ({ name, calories , image, addTodayFood }) {
+
+  const [ foodQuantity, setfoodQuantity ] = useState(1);
+
+  const handleChange = (e) => {
+    setfoodQuantity(e.target.value);
+  };
+
+
+  const handleTodayFood = () => {
+    addTodayFood({
+      name: name,
+      calories: calories,
+      quantity: foodQuantity
+    });
+  };
+
     return (
         <div className="box">
   <article className="media">
@@ -20,10 +37,10 @@ function FoodBox ({ name, calories, image, quantity}) {
     <div className="media-right">
       <div className="field has-addons">
         <div className="control">
-          <input className="input" type="number" /*value="1"*/ />
+          <input className="input" type="number" value={foodQuantity} onChange={handleChange}/>
         </div>
         <div className="control">
-          <button className="button is-info">
+          <button className="button is-info" onClick={handleTodayFood}>
             +
           </button>
         </div>

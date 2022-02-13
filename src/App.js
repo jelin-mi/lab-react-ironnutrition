@@ -5,6 +5,7 @@ import foodsJSON from './foods.json';
 import FoodBox from './components/FoodBox';
 import Search from './components/Search';
 import Form from './components/Form';
+import TodayFood from './components/TodayFood';
 
 function App() {
   const [foods, setFoods] = useState(foodsJSON);
@@ -12,6 +13,9 @@ function App() {
 
   // Iteration 3 | Add new food - form
   const [isVisible, setVisible] = useState(true);
+
+  // Iteration 5 | Create add buttons
+  const [todayFood, setTodayFood] = useState([]);
 
   // Iteration 4 | Implement search bar
   const onFilter = (searchTerm) => {
@@ -39,6 +43,11 @@ function App() {
     /* setFoodsData(updatedFoodsData); */
   };
 
+  // Iteration 5 | Create add buttons
+  const addTodayFood = (today) => {
+    const todayMenu = [...todayFood, today];
+    setTodayFood(todayMenu);
+  };
 
   return (
     <div className="App">
@@ -59,10 +68,12 @@ function App() {
               calories={food.calories}
               image={food.image}
               quantity={food.quantity}
+              addTodayFood={addTodayFood}
             />
           </>
         );
       })}
+      <TodayFood todayFood={todayFood} />
     </div>
   );
 }
