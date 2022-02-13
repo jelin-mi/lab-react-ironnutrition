@@ -6,7 +6,7 @@ function Search({ onFilter }) {
   };
 
   return (
-    <div className='search'>
+    <div className="search">
       <input
         type="text"
         placeholder="Search your meal..."

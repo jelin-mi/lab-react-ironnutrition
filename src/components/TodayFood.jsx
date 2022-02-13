@@ -1,9 +1,8 @@
 import React from 'react';
 
 function TodayFood({ todayFood }) {
-
   const total = todayFood.reduce((acc, current) => {
-      return acc + current.calories * current.quantity;
+    return acc + current.calories * current.quantity;
   }, 0);
 
   return (

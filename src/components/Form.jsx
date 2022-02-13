@@ -10,7 +10,7 @@ function Form({ handleVisibility, addNewFood }) {
   const handleImageInput = (e) => setImage(e.target.value);
 
   const handleSubmit = (e) => {
-    e.preventDefault();     // prevent the page from reloading (its default behavior)
+    e.preventDefault(); // prevent the page from reloading (its default behavior)
     const newFoodInfo = { name, calories, image };
     addNewFood(newFoodInfo);
 
@@ -46,7 +46,7 @@ function Form({ handleVisibility, addNewFood }) {
         value={image}
         onChange={handleImageInput}
       />
-      <button /*onClick={handleVisibility}*/ type="submit">
+      <button onClick={handleVisibility} type="submit">
         Submit a Food
       </button>
     </form>
